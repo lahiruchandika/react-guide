@@ -1,5 +1,9 @@
 # React Guide
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20React%20Guide-4f46e5?style=for-the-badge&logo=react&logoColor=white)](https://lahiruchandika.github.io/react-guide/)
+
+> **View it online, no install needed:** https://lahiruchandika.github.io/react-guide/
+
 An interactive React learning project. Every core React concept has its own lesson page with:
 
 - **Live demos** you can click, type into and break on purpose.
