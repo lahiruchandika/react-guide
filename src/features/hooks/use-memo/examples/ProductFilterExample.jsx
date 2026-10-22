@@ -8,12 +8,20 @@
  *   - WithoutMemoResults recalculates on EVERY render.
  *   - WithMemoResults    recalculates only when query/category change.
  *
- * Try it: click "Unrelated re-render" a few times. Both render counters go up,
- * but only the left panel's "Computed at" time changes (and the click feels
- * slower, because ~25 ms of work runs on each render).
+ * Try it: click "Unrelated re-render" a few times.
+ *   - "renders" goes up in BOTH panels: useMemo does NOT stop a component from
+ *     re-rendering (that is what memo() does - see the useCallback lesson).
+ *   - "Calculations" goes up only in the LEFT panel: useMemo skips the slow
+ *     filter and reuses the cached result. That is the whole point of useMemo.
+ *   - The left "Computed at" time changes on every click; the right one stays.
+ * Type in the search box: now both panels recalculate, because a dependency
+ * (query) changed.
+ *
+ * Note: in development <StrictMode> runs render logic twice, so counters may
+ * go up by 2 per click. The production build counts 1.
  * ----------------------------------------------------------------------------
  */
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { Button, Input } from '@/components/ui';
 import ResultsPanel from '../components/ResultsPanel';
@@ -28,14 +36,32 @@ function runFilter(query, category) {
 
 // ❌ BAD: the expensive work runs every time this component renders.
 function WithoutMemoResults({ query, category }) {
-  const result = runFilter(query, category); // no caching at all
-  return <ResultsPanel title="Without useMemo" tone="danger" total={result.items.length} {...result} />;
+  // Teaching helper: count how many times the slow filter actually runs.
+  // A ref keeps the number between renders without causing new renders.
+  const calculations = useRef(0);
+
+  calculations.current += 1; // runs on EVERY render...
+  const result = runFilter(query, category); // ...because there is no caching at all
+
+  return (
+    <ResultsPanel title="Without useMemo" tone="danger" total={result.items.length} runs={calculations.current} {...result} />
+  );
 }
 
 // ✅ GOOD: the result is cached and reused until a dependency changes.
 function WithMemoResults({ query, category }) {
-  const result = useMemo(() => runFilter(query, category), [query, category]);
-  return <ResultsPanel title="With useMemo" tone="success" total={result.items.length} {...result} />;
+  const calculations = useRef(0);
+
+  const result = useMemo(() => {
+    // This function body runs ONLY when query or category changes.
+    // (Updating a ref here is just for the demo counter - normally keep it pure.)
+    calculations.current += 1;
+    return runFilter(query, category);
+  }, [query, category]);
+
+  return (
+    <ResultsPanel title="With useMemo" tone="success" total={result.items.length} runs={calculations.current} {...result} />
+  );
 }
 
 export default function ProductFilterExample() {

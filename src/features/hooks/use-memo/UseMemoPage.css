@@ -86,7 +86,7 @@
 
 .um-panel-metrics {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
 }
 
@@ -207,4 +207,14 @@
   .um-metrics-4 {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+/* "Calculations" metric: the number that shows what useMemo really saves */
+.um-panel-metrics > .um-metric-runs {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.um-metric-runs .um-stat-value {
+  color: var(--color-primary);
 }

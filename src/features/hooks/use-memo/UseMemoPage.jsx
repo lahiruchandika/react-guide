@@ -70,7 +70,7 @@ const visibleTodos = useMemo(
 
       <Example
         title="2. Without vs with useMemo (20 000 products)"
-        description="Both panels run the same slow filter. Click 'Unrelated re-render': only the left panel recalculates every time."
+        description="Click 'Unrelated re-render': both panels re-render (same 'renders' count), but only the left panel recalculates ('Calculations' and 'Computed at' change). useMemo skips the work, not the render."
         code={withChild(filterSource, 'components/ResultsPanel.jsx', resultsPanelSource)}
         fileName="examples/ProductFilterExample.jsx + components/ResultsPanel.jsx"
       >
