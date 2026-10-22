@@ -1,0 +1,30 @@
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0; /* lets wide code blocks scroll instead of stretching the page */
+  margin-left: var(--sidebar-width);
+}
+
+.app-content {
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.page-loading {
+  display: flex;
+  justify-content: center;
+  padding: 120px 0;
+}
+
+@media (max-width: 960px) {
+  .app-main {
+    margin-left: 0;
+  }
+
+  .app-content {
+    padding: var(--space-4);
+  }
+}

@@ -1,0 +1,366 @@
+/*
+ * EventsFormsPage.css - styles used only by the "Events & Forms" lesson.
+ * Every class starts with "ef-" to avoid collisions with other lessons.
+ */
+
+/* ---------- Shared: log + JSON panels ---------- */
+.ef-log {
+  padding: var(--space-3) var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  min-height: 200px;
+}
+
+.ef-log-head {
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.ef-log-head .box-label {
+  margin: 0;
+}
+
+.ef-log-head .btn {
+  margin-left: auto;
+}
+
+.ef-log ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.ef-log li {
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--color-border);
+  animation: ef-slide 200ms ease;
+}
+
+.ef-log li:first-child {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+@keyframes ef-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.ef-json {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  color: #e2e8f0; /* light text on the always-dark code background */
+  font-family: var(--font-mono);
+  font-size: 12px;
+  overflow-x: auto;
+}
+
+/* ---------- 1. Click events ---------- */
+.ef-hover-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 110px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  user-select: none;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.ef-hover-zone.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ---------- 2. Event object ---------- */
+.ef-keys {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.ef-keys > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+.ef-keys kbd {
+  padding: 2px 8px;
+  border: 1px solid var(--color-border);
+  border-bottom-width: 3px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ef-bubble {
+  display: block;
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ef-bubble-outer {
+  background: var(--color-info-soft);
+  border: 1px solid var(--color-info);
+  color: var(--color-info);
+}
+
+.ef-bubble-middle {
+  margin-top: var(--space-2);
+  background: var(--color-warning-soft);
+  border: 1px solid var(--color-warning);
+  color: var(--color-warning);
+}
+
+.ef-bubble-inner {
+  width: 100%;
+  margin-top: var(--space-2);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+.ef-bubble-inner:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ---------- 3. Controlled inputs ---------- */
+.ef-pizza {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.ef-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.ef-fieldset legend {
+  margin-bottom: var(--space-2);
+  padding: 0;
+}
+
+.ef-fieldset .row {
+  gap: var(--space-2);
+}
+
+.ef-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.ef-chip:hover {
+  border-color: var(--color-primary);
+}
+
+.ef-chip.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.ef-chip input {
+  accent-color: var(--color-primary);
+  margin: 0;
+}
+
+.ef-pizza .textarea {
+  resize: vertical;
+}
+
+.ef-pizza input[type='range'],
+.ef-pizza input[type='checkbox'],
+.ef-signup input[type='checkbox'] {
+  accent-color: var(--color-primary);
+}
+
+.ef-summary {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, var(--color-warning-soft), var(--color-surface) 55%);
+  box-shadow: var(--shadow-md);
+}
+
+.ef-summary-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-3);
+  border-radius: 50%;
+  background: var(--color-warning);
+  color: var(--color-surface);
+}
+
+.ef-summary dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-1) var(--space-4);
+  margin: 0 0 var(--space-4);
+  font-size: 14px;
+}
+
+.ef-summary dt {
+  color: var(--color-text-muted);
+}
+
+.ef-summary dd {
+  margin: 0;
+  font-weight: 600;
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+.ef-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+}
+
+.ef-total strong {
+  font-size: 28px;
+  color: var(--color-primary);
+}
+
+/* ---------- 4. Sign-up form ---------- */
+.ef-signup {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.ef-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ef-form > .btn {
+  align-self: flex-start;
+}
+
+.ef-tight {
+  gap: var(--space-2);
+}
+
+.ef-state {
+  min-width: 0;
+}
+
+.ef-state .row {
+  margin-bottom: var(--space-2);
+}
+
+.ef-state .box-label {
+  margin: 0;
+}
+
+.ef-strength {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ef-strength-bars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.ef-bar {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-border);
+  transition: background var(--transition);
+}
+
+.ef-bar-danger { background: var(--color-danger); }
+.ef-bar-warning { background: var(--color-warning); }
+.ef-bar-info { background: var(--color-info); }
+.ef-bar-success { background: var(--color-success); }
+
+.ef-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  max-width: 560px;
+  animation: ef-slide 250ms ease;
+}
+
+.ef-success-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-success);
+}
+
+.ef-success-head h4 {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.ef-success-head p {
+  margin: 0;
+}
+
+.ef-success .ef-json {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .ef-pizza,
+  .ef-signup {
+    grid-template-columns: 1fr;
+  }
+
+  .ef-summary {
+    position: static;
+  }
+}

@@ -1,0 +1,201 @@
+/*
+ * UseLayoutEffectPage.css - styles for the useLayoutEffect lesson demos.
+ * Every class starts with "ule-" so it can't clash with other lessons.
+ */
+
+/* ---------- Tooltip stage ---------- */
+.ule-stage {
+  position: relative; /* tooltips are positioned relative to this box */
+  height: 240px;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle, var(--color-border) 1px, transparent 1px) 0 0 / 18px 18px,
+    var(--color-surface-2);
+}
+
+.ule-stage-hint {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-2);
+}
+
+.ule-spot {
+  position: absolute;
+}
+
+.ule-spot-top    { top: 10px; left: 50%; transform: translateX(-50%); }
+.ule-spot-left   { top: 120px; left: 10px; }
+.ule-spot-center { top: 150px; left: 50%; transform: translateX(-50%); }
+.ule-spot-right  { top: 120px; right: 10px; }
+
+.ule-trigger {
+  display: inline-block;
+}
+
+.ule-tooltip {
+  position: absolute;
+  z-index: 5;
+  max-width: 240px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: var(--shadow-lg);
+  pointer-events: none;
+}
+
+.ule-tooltip-meta {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* ---------- Flicker comparison ---------- */
+.ule-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-width: 420px;
+}
+
+.ule-slider input {
+  accent-color: var(--color-primary);
+}
+
+.ule-panel {
+  position: relative; /* popover coordinates are relative to the panel */
+  height: 200px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  overflow: hidden;
+}
+
+.ule-panel-anchor {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+.ule-popover {
+  position: absolute;
+  width: 200px;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-success);
+  background: var(--color-surface);
+  color: var(--color-success);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+/* The wrong first frame: easy to spot when it flickers */
+.ule-popover-unmeasured {
+  border: 2px dashed var(--color-danger);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* ---------- Chat ---------- */
+.ule-chat {
+  max-width: 520px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.ule-chat-list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-3);
+  height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--color-surface-2);
+}
+
+.ule-msg {
+  max-width: 78%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ule-msg-bot {
+  align-self: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: 2px;
+}
+
+.ule-msg-user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-bottom-right-radius: 2px;
+}
+
+.ule-typing {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.ule-chat-form {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------- Execution order log ---------- */
+.ule-probe {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-size: 18px;
+}
+
+.ule-order-controls {
+  order: -1; /* show the controls in the left column, the log on the right */
+}
+
+.ule-log {
+  margin: 0;
+  min-height: 170px;
+  padding: var(--space-3) var(--space-3) var(--space-3) 2.4em;
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  color: #cbd5e1; /* light text on the always-dark code background */
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.8;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.ule-log li::marker {
+  color: #64748b;
+}
+
+.ule-log-render { color: #93c5fd; }
+.ule-log-layout { color: #fcd34d; }
+.ule-log-effect { color: #86efac; }
+.ule-log-paint  { color: #f0abfc; }
+
+.ule-log:empty::before {
+  content: 'Click "Re-render" to see the order...';
+  color: #64748b;
+}

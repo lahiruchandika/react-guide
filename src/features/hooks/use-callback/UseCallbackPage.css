@@ -1,0 +1,161 @@
+/*
+ * UseCallbackPage.css - styles for the useCallback lesson demos.
+ * Every class starts with "uc-" (useCallback) to avoid clashes with other lessons.
+ */
+
+/* ---------- Example 1: parent box + action cards ---------- */
+.uc-parent {
+  padding: var(--space-4);
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.uc-parent-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-5);
+}
+
+.uc-likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  color: var(--color-primary);
+}
+
+.uc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.uc-card > .row {
+  width: 100%;
+}
+
+.uc-card .muted {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* ---------- Example 2: todo list ---------- */
+.uc-todo-app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 620px;
+}
+
+.uc-todo-form {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.uc-todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.uc-todo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+  transition: opacity var(--transition);
+}
+
+.uc-todo.is-done {
+  opacity: 0.6;
+}
+
+.uc-todo.is-done span {
+  text-decoration: line-through;
+}
+
+.uc-todo-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  min-width: 0;
+}
+
+.uc-todo-label input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.uc-icon-btn {
+  display: inline-flex;
+  padding: 6px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.uc-icon-btn:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* ---------- Log panels (examples 3 & 4) ---------- */
+.uc-log {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 200px;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+}
+
+.uc-log .box-label {
+  color: #94a3b8;
+}
+
+.uc-log-line {
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--color-success);
+}
+
+.uc-log-line.bad {
+  border-left-color: var(--color-danger);
+  color: #fca5a5;
+}
+
+.uc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-height: 28px;
+}
+
+@media (max-width: 760px) {
+  .uc-parent-row {
+    grid-template-columns: 1fr;
+  }
+}

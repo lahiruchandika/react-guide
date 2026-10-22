@@ -1,0 +1,114 @@
+/*
+ * UseIdPage.css - styles for the useId lesson demos.
+ * Every class starts with "uid-" so it can't clash with other lessons.
+ */
+
+/* Shows a generated id in monospace */
+.uid-id-tag {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 11.5px;
+  padding: 2px 8px;
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+/* Flash when the id changes (the element is remounted via key) */
+.uid-id-flash {
+  animation: uid-flash 700ms ease;
+}
+
+@keyframes uid-flash {
+  from {
+    background: var(--color-warning-soft);
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+  }
+}
+
+.uid-clickable {
+  cursor: pointer;
+  text-decoration: underline dotted var(--color-text-muted);
+  text-underline-offset: 3px;
+}
+
+.uid-check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.uid-check input,
+.uid-radio input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.uid-html {
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  min-width: 0;
+}
+
+.uid-html pre {
+  margin: 0 0 var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-code-bg);
+  color: #cbd5e1; /* light text on the always-dark code background */
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  overflow-x: auto;
+}
+
+.uid-form {
+  max-width: 480px;
+}
+
+.uid-field .uid-id-tag {
+  margin-top: 2px;
+  align-self: flex-start;
+}
+
+.uid-section-head {
+  justify-content: space-between;
+}
+
+.uid-heading {
+  margin: 0;
+  font-size: 15px;
+}
+
+.uid-fieldset {
+  margin: 0;
+  padding: var(--space-2) var(--space-3) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.uid-fieldset legend {
+  padding: 0 var(--space-1);
+}
+
+.uid-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.uid-driver {
+  max-width: 260px;
+}
+
+.uid-idcard {
+  min-width: 0;
+  background: var(--color-surface);
+}

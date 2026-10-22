@@ -1,0 +1,237 @@
+/*
+ * UseContextPage.css - styles for the useContext lesson demos.
+ * Every class starts with "ctx-" (useContext) so it can't clash with other lessons.
+ * Only design tokens (var(--...)) are used, so dark mode works automatically.
+ */
+
+/* Nested boxes get a little indent so the component tree is easy to see */
+.ctx-nested {
+  margin-top: var(--space-3);
+  background: var(--color-surface);
+}
+
+.ctx-nested .ctx-nested {
+  background: var(--color-surface-2);
+}
+
+/* The component that actually USES the data is highlighted */
+.ctx-target {
+  border-style: solid;
+  border-color: var(--color-success);
+  background: var(--color-success-soft) !important;
+}
+
+.ctx-target .box-label {
+  color: var(--color-success);
+}
+
+/* ---------- Avatar ---------- */
+.ctx-avatar-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.ctx-avatar {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-surface);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ctx-avatar-empty {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-border);
+}
+
+.ctx-avatar-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.ctx-avatar-text strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Mini app frame (header + body) ---------- */
+.ctx-app {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background: var(--color-surface);
+}
+
+.ctx-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.ctx-login-row {
+  align-items: flex-end;
+}
+
+.ctx-login-row .field {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ---------- Shop ---------- */
+.ctx-shop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.ctx-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.ctx-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.ctx-product:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.ctx-product .btn {
+  margin-top: var(--space-2);
+}
+
+.ctx-product-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  margin-bottom: var(--space-1);
+}
+
+.ctx-cart-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ctx-cart-icon {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.ctx-cart-count {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--color-danger);
+  color: var(--color-surface);
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.ctx-cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ctx-cart-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
+.ctx-cart-total {
+  justify-content: space-between;
+}
+
+.ctx-empty {
+  margin: 0;
+}
+
+.ctx-icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.ctx-icon-btn:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* ---------- Theme preview ---------- */
+.ctx-theme-preview {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-surface-2));
+  transition: background var(--transition);
+}
+
+.ctx-theme-preview-head {
+  margin-bottom: var(--space-2);
+  color: var(--color-primary);
+}
+
+/* ---------- Context source files ---------- */
+.ctx-sources .code-block {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .ctx-shop {
+    grid-template-columns: 1fr;
+  }
+}

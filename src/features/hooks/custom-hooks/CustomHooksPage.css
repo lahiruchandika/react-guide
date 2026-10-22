@@ -1,0 +1,314 @@
+/*
+ * CustomHooksPage.css - styles for the Custom Hooks lesson only.
+ * Every class starts with "ch-" (custom hooks) to avoid clashing with other lessons.
+ */
+
+.ch-between {
+  justify-content: space-between;
+}
+
+.ch-mono {
+  font-family: var(--font-mono);
+  word-break: break-word;
+}
+
+/* ---------- 1. Cart lines (useCounter) ---------- */
+.ch-cart-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.ch-cart-emoji {
+  font-size: 28px;
+}
+
+.ch-cart-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 140px;
+}
+
+.ch-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ch-stepper-value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ch-cart-total {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 120px;
+  justify-content: flex-end;
+}
+
+/* ---------- 2. Before / after ---------- */
+.ch-compare {
+  border-style: solid;
+  border-width: 1px 1px 1px 4px;
+}
+
+.ch-compare-bad {
+  border-left-color: var(--color-warning);
+}
+
+.ch-compare-good {
+  border-left-color: var(--color-success);
+}
+
+.ch-device {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.ch-device-icon {
+  color: var(--color-primary);
+}
+
+.ch-device-width {
+  font-size: 26px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.ch-meter {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.ch-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width var(--transition);
+}
+
+/* ---------- 3. useToggle ---------- */
+.ch-password {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-top: 4px;
+}
+
+.ch-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-border);
+  cursor: pointer;
+  transition: background var(--transition);
+  flex: none;
+}
+
+.ch-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition);
+}
+
+.ch-switch.on {
+  background: var(--color-success);
+}
+
+.ch-switch.on::after {
+  transform: translateX(20px);
+}
+
+.ch-faq {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ch-faq:last-child {
+  border-bottom: 0;
+}
+
+.ch-faq-question {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border: 0;
+  background: none;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ch-faq-question:hover {
+  color: var(--color-primary);
+}
+
+.ch-faq-chevron {
+  flex: none;
+  transition: transform var(--transition);
+}
+
+.ch-faq.is-open .ch-faq-chevron {
+  transform: rotate(180deg);
+}
+
+.ch-faq-answer {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* ---------- 4. Debounced search ---------- */
+.ch-search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ch-search-bar .field {
+  flex: 1;
+}
+
+.ch-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: var(--space-3);
+  transition: opacity var(--transition);
+}
+
+.ch-products.is-loading,
+.ch-posts.is-loading {
+  opacity: 0.5;
+}
+
+.ch-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.ch-product-emoji {
+  font-size: 22px;
+}
+
+.ch-product-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ---------- 5. useFetch posts ---------- */
+.ch-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: opacity var(--transition);
+}
+
+.ch-posts li {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  border-left: 3px solid var(--color-primary);
+}
+
+/* ---------- Rules of hooks + library ---------- */
+.ch-rules {
+  margin: var(--space-6) 0 var(--space-5);
+}
+
+.ch-rules h2 {
+  font-size: 22px;
+}
+
+.ch-rules-list {
+  margin: 0 0 var(--space-4);
+  padding-left: 1.3em;
+}
+
+.ch-rules-list li {
+  margin-bottom: var(--space-2);
+}
+
+.ch-rules-head {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.ch-rules-head.bad {
+  color: var(--color-danger);
+}
+
+.ch-rules-head.good {
+  color: var(--color-success);
+}
+
+.ch-table-wrap {
+  overflow-x: auto;
+}
+
+.ch-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ch-table th,
+.ch-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.ch-table th {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.ch-table tr:last-child td {
+  border-bottom: 0;
+}

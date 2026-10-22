@@ -1,0 +1,356 @@
+/*
+ * LazySuspensePage.css - styles for the "Lazy Loading & Suspense" lesson only.
+ * Every class starts with "lz-" to avoid clashing with other lessons.
+ */
+
+.lz-between { justify-content: space-between; }
+.lz-grow { flex: 1; min-width: 0; }
+
+.lz-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  padding: var(--space-4);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+/* ---------- Skeleton bones ---------- */
+.lz-bone {
+  display: block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--color-surface-2), var(--color-border), var(--color-surface-2));
+  background-size: 200% 100%;
+  animation: lz-shimmer 1.2s ease-in-out infinite;
+  flex: none;
+}
+
+@keyframes lz-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.lz-fallback-label {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Widgets ---------- */
+.lz-widget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 230px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+/* A nested skeleton inside a widget doesn't need its own frame */
+.lz-widget .lz-widget {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Fade-in when real content replaces a fallback */
+.lz-loaded {
+  animation: lz-appear 0.35s ease-out;
+}
+
+@keyframes lz-appear {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Bar chart ---------- */
+.lz-chart,
+.lz-chart-skel {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  height: 160px;
+  padding-top: var(--space-2);
+}
+
+.lz-chart-skel .lz-bone {
+  flex: 1;
+}
+
+.lz-bar-col {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.lz-bar {
+  width: 100%;
+  max-width: 44px;
+  border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  transform-origin: bottom;
+  animation: lz-grow-bar 0.6s ease-out;
+}
+
+@keyframes lz-grow-bar {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.lz-bar-value {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.lz-bar-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.lz-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Activity ---------- */
+.lz-activity {
+  flex-wrap: nowrap;
+}
+
+.lz-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ---------- Stats ---------- */
+.lz-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.lz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 84px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.lz-stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.lz-page-skel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ---------- Controls ---------- */
+.lz-segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.lz-segmented button {
+  padding: 5px 14px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lz-segmented button.active {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.lz-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 30px;
+}
+
+.lz-chip {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  animation: lz-appear 0.3s ease-out;
+}
+
+/* ---------- Tabs ---------- */
+.lz-tab-panel {
+  min-height: 240px;
+  transition: opacity var(--transition);
+}
+
+.lz-tab-panel.lz-pending {
+  opacity: 0.5; /* old tab stays visible but faded while the new one loads */
+}
+
+/* ---------- Reviews (use) ---------- */
+.lz-shop {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.lz-product-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.lz-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.lz-product:hover { border-color: var(--color-primary); }
+
+.lz-product.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.lz-product-emoji { font-size: 22px; }
+
+.lz-reviews {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.lz-reviews li {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+}
+
+.lz-reviews p { margin: 4px 0 0; }
+
+.lz-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-border);
+}
+
+.lz-stars .on {
+  color: var(--color-warning);
+  fill: var(--color-warning);
+}
+
+/* ---------- App flow diagram ---------- */
+.lz-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--space-2);
+}
+
+.lz-flow-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.lz-flow-step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 150px;
+  min-height: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.lz-flow-step code {
+  align-self: flex-start;
+  font-size: 12px;
+}
+
+.lz-flow-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lz-flow-arrow {
+  color: var(--color-text-muted);
+  flex: none;
+}
+
+@media (max-width: 760px) {
+  .lz-shop,
+  .lz-stats {
+    grid-template-columns: 1fr;
+  }
+}

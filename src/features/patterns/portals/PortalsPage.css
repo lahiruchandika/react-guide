@@ -1,0 +1,303 @@
+/*
+ * PortalsPage.css - styles for the "Portals & Modals" lesson only.
+ * Every class starts with "pt-" to avoid clashing with other lessons.
+ * CSS files are global, so these rules also style content portaled into <body>.
+ */
+
+.pt-between { justify-content: space-between; }
+.pt-end { justify-content: flex-end; }
+.pt-grow { flex: 1; min-width: 0; }
+
+.pt-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.pt-icon-btn:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+/* ---------- 1. Overflow problem ---------- */
+.pt-clip {
+  position: relative; /* the inline popover is positioned against this */
+  height: 150px;
+  overflow: hidden; /* <- the culprit */
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.pt-popover {
+  display: flex;
+  flex-direction: column;
+  min-width: 170px;
+  padding: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.pt-popover-inline {
+  position: absolute;
+  top: 52px;
+  right: var(--space-4);
+  z-index: 5;
+}
+
+.pt-popover-fixed {
+  position: fixed; /* positioned relative to the screen, set via style={{ top, left }} */
+  z-index: 1000;
+  animation: pt-pop 0.12s ease-out;
+}
+
+.pt-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 10px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pt-menu-item:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+@keyframes pt-pop {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- 2. Modal ---------- */
+.pt-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+  animation: pt-fade 0.15s ease-out;
+}
+
+.pt-modal {
+  width: 100%;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  outline: none;
+  animation: pt-rise 0.18s ease-out;
+}
+
+.pt-modal-sm { max-width: 400px; }
+.pt-modal-md { max-width: 520px; }
+
+.pt-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pt-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.pt-modal-body {
+  padding: var(--space-5);
+}
+
+.pt-modal-body > p:last-child {
+  margin: 0;
+}
+
+.pt-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+@keyframes pt-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pt-rise {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.pt-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.pt-panel-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.pt-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: stretch;
+  padding: 4px 4px 4px var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.pt-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-2) 0;
+}
+
+.pt-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ---------- 3. Event bubbling ---------- */
+.pt-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: 190px;
+}
+
+.pt-zone.pt-target {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+/* ---------- 4. Toasts ---------- */
+.pt-shop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.pt-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.pt-product-emoji {
+  font-size: 34px;
+}
+
+.pt-toasts {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(360px, calc(100vw - 32px));
+  pointer-events: none; /* the empty area doesn't block clicks... */
+}
+
+.pt-toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--pt-toast-color, var(--color-info));
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto; /* ...but the toasts themselves are clickable */
+  animation: pt-slide-in 0.22s ease-out;
+}
+
+.pt-toast-success { --pt-toast-color: var(--color-success); }
+.pt-toast-error { --pt-toast-color: var(--color-danger); }
+.pt-toast-warning { --pt-toast-color: var(--color-warning); }
+.pt-toast-info { --pt-toast-color: var(--color-info); }
+
+.pt-toast-icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--pt-toast-color);
+}
+
+.pt-toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--pt-toast-color);
+  opacity: 0.6;
+  transform-origin: left;
+  animation-name: pt-shrink;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pt-shrink {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+@keyframes pt-slide-in {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}

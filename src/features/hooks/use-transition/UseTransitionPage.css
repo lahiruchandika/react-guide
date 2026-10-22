@@ -1,0 +1,166 @@
+/*
+ * UseTransitionPage.css - styles for the useTransition / useDeferredValue lesson.
+ * Every class starts with "utr-" so it can't clash with other lessons.
+ */
+
+/* Old / stale content while a background render is in progress */
+.utr-stale {
+  opacity: 0.45;
+  filter: saturate(0.6);
+}
+
+.utr-fade,
+.utr-tab-panel,
+.utr-profile {
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+
+/* Delay the dimming slightly so very fast updates don't blink */
+.utr-fade.utr-stale {
+  transition-delay: 120ms;
+}
+
+/* ---------- Switch / tabs ---------- */
+.utr-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.utr-switch input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.utr-tabs {
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.utr-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.utr-tab:hover {
+  color: var(--color-text);
+}
+
+.utr-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.utr-tab-panel {
+  min-height: 80px;
+}
+
+/* ---------- Search box ---------- */
+.utr-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 420px;
+}
+
+.utr-search .field-input {
+  padding-left: 34px;
+}
+
+.utr-search-icon {
+  position: absolute;
+  left: 11px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* ---------- Slow product list ---------- */
+.utr-list-meta {
+  margin-bottom: var(--space-2);
+}
+
+.utr-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.utr-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px 80px;
+  gap: var(--space-3);
+  align-items: center;
+  padding: 7px var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13.5px;
+}
+
+.utr-row:nth-child(even) {
+  background: var(--color-surface-2);
+}
+
+.utr-row-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.utr-row-name mark {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+  border-radius: 3px;
+  padding: 0 1px;
+}
+
+.utr-row-cat {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+.utr-row-price {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* ---------- Async profile ---------- */
+.utr-profile {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  align-self: start;
+}
+
+.utr-profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-surface);
+  font-weight: 700;
+  font-size: 18px;
+}

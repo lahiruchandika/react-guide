@@ -1,0 +1,31 @@
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+  margin: var(--space-4) 0;
+}
+
+.callout-icon {
+  flex: none;
+  margin-top: 3px;
+}
+
+.callout-title {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+.callout-info    { background: var(--color-info-soft);    border-color: var(--color-info); }
+.callout-info .callout-icon { color: var(--color-info); }
+.callout-tip     { background: var(--color-primary-soft); border-color: var(--color-primary); }
+.callout-tip .callout-icon { color: var(--color-primary); }
+.callout-warning { background: var(--color-warning-soft); border-color: var(--color-warning); }
+.callout-warning .callout-icon { color: var(--color-warning); }
+.callout-success { background: var(--color-success-soft); border-color: var(--color-success); }
+.callout-success .callout-icon { color: var(--color-success); }

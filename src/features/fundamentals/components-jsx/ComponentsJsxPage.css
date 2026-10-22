@@ -1,0 +1,302 @@
+/*
+ * ComponentsJsxPage.css - styles used only by the "Components & JSX" lesson.
+ * Every class starts with "cj-" so it never clashes with other lessons.
+ * Colors always come from the design tokens in src/styles/variables.css.
+ */
+
+/* ---------- 1. First component ---------- */
+.cj-welcome {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.cj-tile {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-primary);
+  animation: cj-pop 220ms ease;
+}
+
+.cj-tile strong {
+  color: var(--color-text);
+}
+
+.cj-tile p {
+  margin: 0;
+}
+
+@keyframes cj-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ---------- 2. JSX rules ---------- */
+.cj-rules {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.cj-rule-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cj-rule {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.cj-rule:hover {
+  border-color: var(--color-primary);
+}
+
+.cj-rule.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.cj-rule-no {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  font-size: 12px;
+}
+
+.cj-rule.active .cj-rule-no {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.cj-snippet {
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+}
+
+.cj-snippet-wrong {
+  background: var(--color-danger-soft);
+}
+
+.cj-snippet-right {
+  background: var(--color-success-soft);
+}
+
+.cj-snippet pre {
+  margin: var(--space-2) 0 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cj-snippet .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cj-dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-1) var(--space-4);
+  margin: 0;
+}
+
+.cj-dl dt {
+  font-weight: 700;
+}
+
+.cj-dl dd {
+  margin: 0;
+}
+
+.cj-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font-weight: 600;
+}
+
+.cj-hr {
+  flex: 1;
+  min-width: 60px;
+  border: 0;
+  border-top: 2px dashed var(--color-border);
+}
+
+/* ---------- 3. Expressions ---------- */
+.cj-receipt {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.cj-receipt h4 {
+  margin-bottom: var(--space-1);
+}
+
+.cj-expr-list {
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+}
+
+.cj-expr-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-bottom: 1px dashed var(--color-border);
+  font-size: 14px;
+}
+
+.cj-expr-list li span {
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 4. ProfileCard composition ---------- */
+.cj-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.cj-avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  color: var(--color-surface);
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 0 0 4px var(--color-surface-2);
+}
+
+.cj-name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.cj-role {
+  margin: 0;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.cj-location {
+  margin: 4px 0 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cj-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: var(--space-2) 0 0;
+  padding: var(--space-3) 0 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.cj-stats li {
+  display: flex;
+  flex-direction: column;
+}
+
+.cj-stats strong {
+  font-size: 18px;
+}
+
+.cj-stats span {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+/* "Show component outlines": draw a labelled dashed box around each component */
+.cj-outlines [data-component] {
+  position: relative;
+  outline: 2px dashed var(--color-warning);
+  outline-offset: 4px;
+}
+
+.cj-outlines [data-component]::after {
+  content: '<' attr(data-component) ' />';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--color-warning);
+  color: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.cj-outlines .cj-profile {
+  outline-color: var(--color-primary);
+  outline-offset: -2px;
+}
+
+.cj-outlines .cj-profile::after {
+  top: 6px;
+  left: 6px;
+  background: var(--color-primary);
+}
+
+@media (max-width: 760px) {
+  .cj-rules {
+    grid-template-columns: 1fr;
+  }
+}

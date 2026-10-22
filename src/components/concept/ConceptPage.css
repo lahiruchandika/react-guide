@@ -1,0 +1,123 @@
+.concept {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.concept-hero {
+  padding: var(--space-5) 0 var(--space-4);
+}
+
+.concept-meta {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+  text-transform: capitalize;
+}
+
+.concept-title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+}
+
+.concept-summary {
+  font-size: 17px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.concept-intro {
+  font-size: 15.5px;
+  margin-bottom: var(--space-4);
+}
+
+.concept-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.concept-keypoints,
+.concept-syntax {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+}
+
+.concept-keypoints h4,
+.concept-syntax h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.concept-keypoints ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.concept-keypoints li {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  font-size: 14.5px;
+}
+
+.concept-keypoints li svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--color-success);
+}
+
+.concept-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin: var(--space-6) 0 var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.pager-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 600;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.pager-link:hover {
+  text-decoration: none;
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.pager-link small {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.pager-link.next {
+  text-align: right;
+  margin-left: auto;
+}

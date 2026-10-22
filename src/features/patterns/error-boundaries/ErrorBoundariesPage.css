@@ -1,0 +1,212 @@
+/*
+ * ErrorBoundariesPage.css - styles for the "Error Boundaries" lesson only.
+ * Every class starts with "eb-" to avoid clashing with other lessons.
+ */
+
+.eb-between { justify-content: space-between; }
+
+/* ---------- Fallback UI ---------- */
+.eb-fallback {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-md);
+  background: var(--color-danger-soft);
+  animation: eb-in 0.25s ease-out;
+}
+
+.eb-fallback-compact {
+  padding: var(--space-3);
+  min-height: 150px;
+}
+
+.eb-fallback-icon {
+  flex: none;
+  color: var(--color-danger);
+}
+
+.eb-fallback-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.eb-error-message {
+  max-width: 100%;
+  background: var(--color-surface);
+  color: var(--color-danger);
+  overflow-wrap: anywhere;
+}
+
+@keyframes eb-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Buggy counter ---------- */
+.eb-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+/* ---------- Dashboard widgets ---------- */
+.eb-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-top-width: 3px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.eb-column > :not(:first-child) {
+  align-self: stretch;
+}
+
+.eb-column-bad { border-top-color: var(--color-danger); }
+.eb-column-good { border-top-color: var(--color-success); }
+
+.eb-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--space-3);
+}
+
+.eb-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 150px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.eb-widget-icon {
+  font-size: 22px;
+}
+
+.eb-widget-value {
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.eb-break {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.eb-break:hover {
+  border-color: var(--color-danger);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* Compact fallback inside the small widget grid: stack vertically */
+.eb-widgets .eb-fallback-compact {
+  flex-direction: column;
+}
+
+/* ---------- User directory ---------- */
+.eb-user-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.eb-user-tabs button {
+  padding: 5px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.eb-user-tabs button.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.eb-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 110px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.eb-profile-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+/* ---------- Error log ---------- */
+.eb-log {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.eb-log-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.eb-log-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 13px;
+  animation: eb-in 0.25s ease-out;
+}
+
+.eb-log-entry code {
+  align-self: flex-start;
+  max-width: 100%;
+  font-size: 11.5px;
+  overflow-wrap: anywhere;
+}
