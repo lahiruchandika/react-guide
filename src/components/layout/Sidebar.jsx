@@ -24,7 +24,7 @@ export default function Sidebar({ open, onClose }) {
       <aside className={`sidebar ${open ? 'open' : ''}`}>
         <div className="sidebar-brand">
           <Link to="/" className="brand-link">
-            <img src="/react.svg" alt="" width={28} height={28} className="brand-logo" />
+            <img src={`${import.meta.env.BASE_URL}react.svg`} alt="" width={28} height={28} className="brand-logo" />
             <span>
               React <b>Guide</b>
             </span>
