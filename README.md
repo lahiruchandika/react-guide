@@ -9,6 +9,8 @@ An interactive React learning project. Every core React concept has its own less
 
 Built with **React 19**, **Vite 6** and **React Router 7** in plain JavaScript (JSX). There is no TypeScript and no CSS framework, so you only have to read React code.
 
+**Live demo:** https://lahiruchandika.github.io/react-guide/
+
 The best way to use it: run the app, open a lesson in the browser, and open the same lesson folder in VS Code side by side.
 
 ---

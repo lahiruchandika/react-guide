@@ -26,4 +26,9 @@ export const router = createBrowserRouter([
       { path: '*', element: <NotFoundPage /> },
     ],
   },
-]);
+], {
+  // When the app is hosted under a sub-path (GitHub Pages: /react-guide/),
+  // basename makes every route and <Link> relative to that path.
+  // import.meta.env.BASE_URL comes from the "base" option in vite.config.js.
+  basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/',
+});
