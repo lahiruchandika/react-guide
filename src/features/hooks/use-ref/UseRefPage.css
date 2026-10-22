@@ -1,0 +1,274 @@
+/*
+ * UseRefPage.css - styles for the useRef lesson demos.
+ * Every class starts with "ur-" so it never collides with other lessons.
+ */
+
+.ur-spread {
+  justify-content: space-between;
+}
+
+.ur-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Focus input ---------- */
+.ur-search {
+  max-width: 560px;
+}
+
+.ur-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  min-height: 30px;
+}
+
+.ur-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* ---------- Ref vs state ---------- */
+.ur-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-top-width: 4px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.ur-tile .ur-spread {
+  align-self: stretch;
+}
+
+.ur-tile-state {
+  border-top-color: var(--color-primary);
+}
+
+.ur-tile-ref {
+  border-top-color: var(--color-accent);
+}
+
+.ur-note {
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-info-soft);
+  color: var(--color-info);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ---------- Previous value (ticker) ---------- */
+.ur-ticker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 480px;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+}
+
+.ur-ticker-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ur-ticker-prices {
+  gap: var(--space-6);
+  align-items: flex-end;
+}
+
+.ur-trend-up { color: var(--color-success); }
+.ur-trend-down { color: var(--color-danger); }
+.ur-trend-flat { color: var(--color-text); }
+
+.ur-prev {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Stopwatch ---------- */
+.ur-stopwatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-code-bg);
+}
+
+.ur-stopwatch-time {
+  font-family: var(--font-mono);
+  font-size: 46px;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.ur-stopwatch-time.running {
+  color: #4ade80;
+}
+
+.ur-stopwatch .btn-secondary,
+.ur-stopwatch .btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+}
+
+.ur-laps {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.ur-laps p {
+  margin: var(--space-2) 0 0;
+}
+
+.ur-laps ol {
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.ur-laps li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
+/* ---------- Scroll to element (chat) ---------- */
+.ur-chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: var(--space-5);
+}
+
+.ur-chat {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  overflow: hidden;
+}
+
+.ur-chat-list {
+  position: relative; /* makes offsetTop of children relative to this list */
+  height: 280px;
+  margin: 0;
+  padding: var(--space-3);
+  list-style: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ur-msg {
+  align-self: flex-start;
+  max-width: 78%;
+  padding: 8px 12px;
+  border-radius: 12px 12px 12px 4px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+
+.ur-msg.mine {
+  align-self: flex-end;
+  border-radius: 12px 12px 4px 12px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.ur-msg.highlight {
+  box-shadow: 0 0 0 3px var(--color-warning);
+  transform: scale(1.02);
+}
+
+.ur-msg-author {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.ur-chat-form {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.ur-chat-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  outline: none;
+}
+
+.ur-chat-form input:focus {
+  border-color: var(--color-primary);
+}
+
+.ur-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ur-jump-btn {
+  padding: 3px 9px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ur-jump-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+@media (max-width: 760px) {
+  .ur-chat-layout {
+    grid-template-columns: 1fr;
+  }
+}

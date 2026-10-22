@@ -1,0 +1,80 @@
+/*
+ * variables.css - design tokens (CSS custom properties).
+ * ---------------------------------------------------------------------------
+ * Every color, radius and shadow in the app comes from here, so the whole UI
+ * can switch between light and dark themes by changing ONE attribute:
+ *   <html data-theme="dark">   (set by ThemeContext.jsx)
+ * Always use these variables in component CSS instead of hard-coded colors.
+ */
+:root {
+  /* Brand */
+  --color-primary: #4f46e5;
+  --color-primary-hover: #4338ca;
+  --color-primary-soft: #eef2ff;
+  --color-accent: #06b6d4;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-success-soft: #dcfce7;
+  --color-warning: #d97706;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fee2e2;
+  --color-info: #0284c7;
+  --color-info-soft: #e0f2fe;
+
+  /* Surfaces & text */
+  --color-bg: #f6f7fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f3f9;
+  --color-border: #e4e7ef;
+  --color-text: #1e2235;
+  --color-text-muted: #667085;
+  --color-code-bg: #0f172a;
+
+  /* Shape & depth */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 4px 16px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 12px 40px rgba(16, 24, 40, 0.16);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+  /* Layout */
+  --sidebar-width: 270px;
+  --header-height: 60px;
+  --transition: 160ms ease;
+}
+
+[data-theme='dark'] {
+  --color-primary: #818cf8;
+  --color-primary-hover: #a5b4fc;
+  --color-primary-soft: rgba(129, 140, 248, 0.14);
+  --color-success-soft: rgba(22, 163, 74, 0.18);
+  --color-warning-soft: rgba(217, 119, 6, 0.18);
+  --color-danger-soft: rgba(220, 38, 38, 0.18);
+  --color-info-soft: rgba(2, 132, 199, 0.18);
+
+  --color-bg: #0b0f1a;
+  --color-surface: #131a2a;
+  --color-surface-2: #1a2235;
+  --color-border: #263049;
+  --color-text: #e6e9f2;
+  --color-text-muted: #98a2b3;
+  --color-code-bg: #0a0e17;
+
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+}

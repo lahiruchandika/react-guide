@@ -1,0 +1,306 @@
+/*
+ * ConditionalRenderingPage.css
+ * Styles for the demos in this lesson. Every class starts with "cr-"
+ * (Conditional Rendering) so it never collides with other lessons.
+ */
+
+/* ---------- Early return: login / dashboard panel ---------- */
+.cr-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.cr-panel-locked {
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.cr-panel-locked strong {
+  color: var(--color-text);
+  font-size: 17px;
+}
+
+.cr-panel-locked p {
+  margin: 0;
+}
+
+.cr-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-info-soft);
+  color: var(--color-info);
+  font-size: 14px;
+}
+
+/* ---------- Ternary & && : product card ---------- */
+.cr-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cr-switch input {
+  accent-color: var(--color-primary);
+  width: 16px;
+  height: 16px;
+}
+
+.cr-product {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  max-width: 320px;
+}
+
+.cr-product-image {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 130px;
+  font-size: 56px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-info-soft));
+}
+
+.cr-product-ribbon {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+}
+
+.cr-heart {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition), transform 120ms ease;
+}
+
+.cr-heart:hover {
+  transform: scale(1.08);
+}
+
+.cr-heart.is-liked {
+  color: var(--color-danger);
+}
+
+.cr-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+/* ---------- 0 && pitfall: bad vs good ---------- */
+.cr-compare {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  padding-top: var(--space-5);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.cr-compare-bad {
+  border-color: var(--color-danger);
+}
+
+.cr-compare-good {
+  border-color: var(--color-success);
+}
+
+.cr-compare-tag {
+  position: absolute;
+  top: -11px;
+  left: var(--space-3);
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.cr-compare-bad .cr-compare-tag {
+  background: var(--color-danger);
+}
+
+.cr-compare-good .cr-compare-tag {
+  background: var(--color-success);
+}
+
+.cr-compare-code {
+  align-self: flex-start;
+}
+
+.cr-cart-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  font-weight: 600;
+}
+
+.cr-cart-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- Status map ---------- */
+.cr-state {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  color: var(--color-text-muted);
+}
+
+.cr-state-error {
+  color: var(--color-danger);
+}
+
+.cr-user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cr-user-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.cr-avatar {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---------- Toggle UI: accordion & hide vs unmount ---------- */
+.cr-accordion {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  align-self: start;
+}
+
+.cr-acc-item + .cr-acc-item {
+  border-top: 1px solid var(--color-border);
+}
+
+.cr-acc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  background: var(--color-surface);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cr-acc-head:hover {
+  background: var(--color-surface-2);
+}
+
+.cr-acc-item.is-open .cr-acc-head {
+  color: var(--color-primary);
+}
+
+.cr-acc-chevron {
+  flex: none;
+  transition: transform var(--transition);
+}
+
+.cr-acc-item.is-open .cr-acc-chevron {
+  transform: rotate(180deg);
+}
+
+.cr-acc-body {
+  margin: 0;
+  padding: 0 var(--space-4) var(--space-4);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.cr-hide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.cr-hide-grid code {
+  display: inline-block;
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.cr-hide-slot {
+  min-height: 40px;
+  margin-top: var(--space-2);
+}

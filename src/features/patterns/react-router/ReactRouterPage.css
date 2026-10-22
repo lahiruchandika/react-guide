@@ -1,0 +1,371 @@
+/*
+ * ReactRouterPage.css - styles for the "React Router" lesson only.
+ * Every class starts with "rr-" to avoid clashing with other lessons.
+ */
+
+.rr-between { justify-content: space-between; }
+
+/* ---------- Fake address bar ---------- */
+.rr-address {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  min-width: 0;
+}
+
+.rr-address-lock {
+  color: var(--color-success);
+  flex: none;
+}
+
+.rr-address-url {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rr-address-path { color: var(--color-text); font-weight: 600; }
+.rr-address-search { color: var(--color-primary); font-weight: 600; }
+.rr-address-hash { color: var(--color-warning); font-weight: 600; }
+
+/* ---------- Chips & table (example 1) ---------- */
+.rr-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.rr-chip {
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--color-primary);
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.rr-chip:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  text-decoration: none;
+}
+
+.rr-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+.rr-table th,
+.rr-table td {
+  padding: 7px var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.rr-table th {
+  width: 180px;
+  font-weight: 500;
+}
+
+.rr-table td {
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Panels (examples 2 & 3) ---------- */
+.rr-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-top-width: 3px;
+  border-top-color: var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.rr-panel-danger {
+  border-top-color: var(--color-danger);
+}
+
+.rr-panel .field {
+  align-self: stretch;
+}
+
+.rr-panel-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.rr-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: stretch;
+}
+
+.rr-nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+
+.rr-nav-link:hover {
+  background: var(--color-surface);
+  text-decoration: none;
+}
+
+.rr-nav-link.active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Search params (example 4) ---------- */
+.rr-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rr-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1 1 200px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.rr-search:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.rr-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.rr-select {
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  text-transform: capitalize;
+}
+
+.rr-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.rr-product {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  animation: rr-in 0.2s ease-out;
+}
+
+.rr-product .small {
+  text-transform: capitalize;
+}
+
+.rr-price {
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+@keyframes rr-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Mini app (example 5) ---------- */
+.rr-browser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.rr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.rr-tabs a {
+  padding: 6px 14px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rr-tabs a:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.rr-tabs a.active {
+  border-bottom-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.rr-viewport {
+  min-height: 260px;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.rr-mini-page h4 {
+  margin-bottom: var(--space-2);
+}
+
+.rr-users {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.rr-users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: var(--space-4);
+  border-right: 1px solid var(--color-border);
+}
+
+.rr-mini-input {
+  margin-bottom: var(--space-2);
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.rr-user-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.rr-user-link:hover {
+  background: var(--color-surface-2);
+  text-decoration: none;
+}
+
+.rr-user-link.active {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.rr-users-detail {
+  min-width: 0;
+}
+
+.rr-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 200px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.rr-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  animation: rr-in 0.2s ease-out;
+}
+
+.rr-profile-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-primary-soft);
+  font-size: 28px;
+}
+
+.rr-profile-name {
+  margin: 0;
+  font-size: 18px;
+}
+
+.rr-profile p {
+  margin: 0;
+}
+
+.rr-param {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 760px) {
+  .rr-users {
+    grid-template-columns: 1fr;
+  }
+
+  .rr-users-list {
+    padding-right: 0;
+    border-right: 0;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rr-table th {
+    width: 130px;
+  }
+}

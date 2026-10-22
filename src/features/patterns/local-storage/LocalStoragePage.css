@@ -1,0 +1,234 @@
+/*
+ * LocalStoragePage.css - styles for the Local Storage lesson only.
+ * Every class starts with "ls-" to avoid clashing with other lessons.
+ */
+
+.ls-between {
+  justify-content: space-between;
+}
+
+/* Small square icon button (delete etc.) */
+.ls-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.ls-icon-btn:hover {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+/* ---------- 1. Console + storage viewer ---------- */
+.ls-console {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  color: #cbd5e1; /* same light text as CodeBlock.css - the console is dark in both themes */
+  word-break: break-all;
+}
+
+.ls-console-prompt {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.ls-viewer {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.ls-viewer-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 6px var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 13px;
+  transition: background var(--transition);
+}
+
+.ls-viewer-row:last-child {
+  border-bottom: 0;
+}
+
+.ls-viewer-row.is-highlight {
+  background: var(--color-primary-soft);
+}
+
+.ls-viewer-key {
+  flex: none;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ls-viewer-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+.ls-viewer-empty {
+  padding: var(--space-4);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+/* ---------- 2. JSON results ---------- */
+.ls-pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ls-pre-scroll {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.ls-result {
+  border-style: solid;
+  border-width: 1px 1px 1px 4px;
+}
+
+.ls-result .box-label {
+  gap: 6px;
+}
+
+.ls-result-bad {
+  border-left-color: var(--color-danger);
+}
+
+.ls-result-bad .box-label {
+  color: var(--color-danger);
+}
+
+.ls-result-good {
+  border-left-color: var(--color-success);
+}
+
+.ls-result-good .box-label {
+  color: var(--color-success);
+}
+
+/* ---------- 3. Todos ---------- */
+.ls-todo-form {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
+}
+
+.ls-todo-form .field {
+  flex: 1;
+}
+
+.ls-todos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ls-todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.ls-todo:last-child {
+  border-bottom: 0;
+}
+
+.ls-todo-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  cursor: pointer;
+}
+
+.ls-todo.is-done .ls-todo-label span {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.ls-empty {
+  padding: var(--space-4);
+  text-align: center;
+}
+
+/* ---------- 4. Settings preview ---------- */
+.ls-preview {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-surface-2));
+  border: 1px solid var(--color-border);
+  transition: font-size var(--transition);
+}
+
+.ls-preview p {
+  margin: var(--space-2) 0;
+  font-size: 0.85em;
+}
+
+/* ---------- 5. Cross-tab sync ---------- */
+.ls-note {
+  resize: vertical;
+  background: var(--color-warning-soft);
+  font-size: 15px;
+}
+
+.ls-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ls-events li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  font-size: 13px;
+}
+
+.ls-events-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

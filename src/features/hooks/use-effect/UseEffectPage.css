@@ -1,0 +1,347 @@
+/*
+ * UseEffectPage.css - styles for the useEffect lesson demos.
+ * Every class starts with "ue-" so it never collides with other lessons.
+ */
+
+.ue-spread {
+  justify-content: space-between;
+}
+
+.ue-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  outline: none;
+}
+
+.ue-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.ue-legend {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.ue-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.ue-switch input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+/* ---------- Log panel ---------- */
+.ue-log {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-code-bg);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.ue-log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ue-log-clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 12px;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.ue-log-clear:hover {
+  color: #fff;
+}
+
+.ue-log-list {
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.ue-log-item {
+  display: grid;
+  grid-template-columns: auto 62px 1fr;
+  gap: 8px;
+  padding: 3px 12px;
+  color: #e2e8f0;
+  animation: ue-fade-in 300ms ease;
+}
+
+.ue-log-item:first-child {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ue-log-time {
+  color: #64748b;
+}
+
+.ue-log-type {
+  font-weight: 700;
+}
+
+.ue-log-msg {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ue-log-effect .ue-log-type { color: #4ade80; }
+.ue-log-cleanup .ue-log-type { color: #fb923c; }
+.ue-log-render .ue-log-type { color: #60a5fa; }
+.ue-log-info .ue-log-type { color: #94a3b8; }
+
+.ue-log-empty {
+  padding: 12px;
+  color: #64748b;
+  font-style: italic;
+}
+
+@keyframes ue-fade-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---------- Document title demo ---------- */
+.ue-tab-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 340px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-bottom: 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  font-size: 13px;
+}
+
+.ue-tab-dot {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
+
+.ue-tab-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ue-inbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+}
+
+.ue-inbox-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ue-inbox-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+}
+
+.ue-inbox-list li.read {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.ue-inbox-list li span {
+  flex: 1;
+}
+
+.ue-link-btn {
+  border: 0;
+  background: none;
+  color: var(--color-primary);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ---------- Timer ---------- */
+.ue-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ue-timer-ring {
+  display: grid;
+  place-items: center;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  /* conic-gradient draws the progress arc; --progress is set inline from React */
+  background: conic-gradient(var(--color-primary) var(--progress), var(--color-surface-2) 0);
+  transition: background 300ms linear;
+}
+
+.ue-timer-ring.done {
+  background: conic-gradient(var(--color-success) 100%, var(--color-surface-2) 0);
+}
+
+.ue-timer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.ue-timer-inner .big-number {
+  font-size: 34px;
+}
+
+/* ---------- Window size ---------- */
+.ue-size {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-soft);
+}
+
+.ue-size-icon {
+  color: var(--color-primary);
+}
+
+/* ---------- Fetching ---------- */
+.ue-chip {
+  padding: 3px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ue-chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.ue-chip.danger.active {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.ue-user-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.ue-user-btn small {
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.ue-user-btn.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+.ue-profile {
+  min-height: 150px;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-2);
+  transition: border-color var(--transition);
+}
+
+.ue-profile.wrong {
+  border-color: var(--color-danger);
+  background: var(--color-danger-soft);
+}
+
+.ue-profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.ue-error {
+  margin: 0;
+  color: var(--color-danger);
+}
